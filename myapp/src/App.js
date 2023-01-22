@@ -5,11 +5,11 @@ import { Todo } from './models';
 function App()  {
   async function addTodo() {
 
-      await DataStore.save(
+    await DataStore.save(
     new Todo({
-		"name": "Lorem ipsum dolor sit amet",
-		"description": "Lorem ipsum dolor sit amet"
-    })
+      "name": "Lorem ipsum dolor sit amet",
+      "description": "Lorem ipsum dolor sit amet"
+      }) 
     );
   }
 
