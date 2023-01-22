@@ -17,6 +17,12 @@ function App() {
     
   }
 
+  async function deleteTodo(){
+    const modelToDelete = await DataStore.query(Todo, "c2c3e450-965f-4ddd-ad1f-42dda6b6ade9");
+    DataStore.delete(modelToDelete);
+  }
+  
+
   async function addTodo() {
     await DataStore.save(
     new Todo({
@@ -39,7 +45,8 @@ function App() {
     <div className="App">
       <button onClick={addTodo}> Add </button>
       <button onClick={logData}> Log </button>
-      <button onClick={update}> Update </button>
+      <button onClick={update}> Update </button> 
+      <button onClick={deleteTodo}> Delete </button> 
     </div>
   );
 }
