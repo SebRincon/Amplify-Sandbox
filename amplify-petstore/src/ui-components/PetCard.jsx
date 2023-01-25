@@ -6,11 +6,18 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Button, Flex, Image, Text } from "@aws-amplify/ui-react";
 import MyIcon from "./MyIcon";
 export default function PetCard(props) {
   const { pet, overrides, ...rest } = props;
+  const melindaMarcusOnClick = useNavigateAction({
+    type: "url",
+    url: pet?.image,
+  });
   return (
     <Flex
       gap="24px"
@@ -71,6 +78,9 @@ export default function PetCard(props) {
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children={pet?.name}
+          onClick={() => {
+            melindaMarcusOnClick();
+          }}
           {...getOverrideProps(overrides, "Melinda Marcus")}
         ></Text>
         <Text
