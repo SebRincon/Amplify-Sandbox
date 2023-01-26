@@ -8,18 +8,17 @@ import * as React from "react";
 import { Pet } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { ButtonProps, FlexProps, ImageProps, TextProps } from "@aws-amplify/ui-react";
-import { MyIconProps } from "./MyIcon";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type PetCardOverridesProps = {
     PetCard?: PrimitiveOverrideProps<FlexProps>;
     image?: PrimitiveOverrideProps<ImageProps>;
     Name?: PrimitiveOverrideProps<FlexProps>;
     "Melinda Marcus"?: PrimitiveOverrideProps<TextProps>;
-    "Design Engineer at Cloth Studios"?: PrimitiveOverrideProps<TextProps>;
-    Followers?: PrimitiveOverrideProps<FlexProps>;
-    MyIcon?: MyIconProps;
-    "99 Followers"?: PrimitiveOverrideProps<TextProps>;
+    Breed?: PrimitiveOverrideProps<TextProps>;
+    About?: PrimitiveOverrideProps<TextProps>;
+    "Age:"?: PrimitiveOverrideProps<TextProps>;
     Button?: PrimitiveOverrideProps<ButtonProps>;
+    DeleteButton?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;
 export declare type PetCardProps = React.PropsWithChildren<Partial<FlexProps> & {
     pet?: Pet;

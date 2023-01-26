@@ -11,7 +11,6 @@ import {
   useNavigateAction,
 } from "@aws-amplify/ui-react/internal";
 import { Button, Flex, Image, Text } from "@aws-amplify/ui-react";
-import MyIcon from "./MyIcon";
 export default function PetCard(props) {
   const { pet, overrides, ...rest } = props;
   const melindaMarcusOnClick = useNavigateAction({
@@ -20,15 +19,16 @@ export default function PetCard(props) {
   });
   return (
     <Flex
-      gap="24px"
+      gap="26px"
       direction="column"
-      width="320px"
+      width="unset"
       height="unset"
       justifyContent="flex-start"
       alignItems="center"
       position="relative"
+      borderRadius="10px"
       padding="24px 24px 24px 24px"
-      backgroundColor="rgba(255,255,255,1)"
+      backgroundColor="rgba(14,14,14,1)"
       {...getOverrideProps(overrides, "PetCard")}
       {...rest}
     >
@@ -41,6 +41,8 @@ export default function PetCard(props) {
         justifyContent="unset"
         shrink="0"
         position="relative"
+        border="1px SOLID rgba(255,255,255,1)"
+        boxShadow="0px 4px 5px rgba(1, 1, 1, 0.25)"
         borderRadius="160px"
         padding="0px 0px 0px 0px"
         objectFit="cover"
@@ -48,7 +50,7 @@ export default function PetCard(props) {
         {...getOverrideProps(overrides, "image")}
       ></Image>
       <Flex
-        gap="8px"
+        gap="9px"
         direction="column"
         width="unset"
         height="unset"
@@ -63,7 +65,7 @@ export default function PetCard(props) {
           fontFamily="Inter"
           fontSize="20px"
           fontWeight="700"
-          color="rgba(13,26,38,1)"
+          color="rgba(255,255,255,1)"
           lineHeight="25px"
           textAlign="center"
           display="block"
@@ -87,7 +89,7 @@ export default function PetCard(props) {
           fontFamily="Inter"
           fontSize="16px"
           fontWeight="400"
-          color="rgba(48,64,80,1)"
+          color="rgba(255,255,255,1)"
           lineHeight="24px"
           textAlign="center"
           display="block"
@@ -102,41 +104,14 @@ export default function PetCard(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children={pet?.about}
-          {...getOverrideProps(overrides, "Design Engineer at Cloth Studios")}
+          children={pet?.breed}
+          {...getOverrideProps(overrides, "Breed")}
         ></Text>
-      </Flex>
-      <Flex
-        gap="16px"
-        direction="row"
-        width="unset"
-        height="unset"
-        justifyContent="flex-start"
-        alignItems="flex-start"
-        shrink="0"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "Followers")}
-      >
-        <MyIcon
-          width="24px"
-          height="24px"
-          display="block"
-          gap="unset"
-          alignItems="unset"
-          justifyContent="unset"
-          overflow="hidden"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          type="group"
-          {...getOverrideProps(overrides, "MyIcon")}
-        ></MyIcon>
         <Text
           fontFamily="Inter"
           fontSize="16px"
           fontWeight="400"
-          color="rgba(48,64,80,1)"
+          color="rgba(255,255,255,1)"
           lineHeight="24px"
           textAlign="center"
           display="block"
@@ -151,18 +126,49 @@ export default function PetCard(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="99 Followers"
-          {...getOverrideProps(overrides, "99 Followers")}
+          children={`${"About: "}${pet?.about}`}
+          {...getOverrideProps(overrides, "About")}
+        ></Text>
+        <Text
+          fontFamily="Inter"
+          fontSize="16px"
+          fontWeight="400"
+          color="rgba(255,255,255,1)"
+          lineHeight="24px"
+          textAlign="center"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          letterSpacing="0.01px"
+          width="unset"
+          height="unset"
+          gap="unset"
+          alignItems="unset"
+          shrink="0"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children={`${"Age: "}${pet?.age}`}
+          {...getOverrideProps(overrides, "Age:")}
         ></Text>
       </Flex>
       <Button
+        width="272px"
         shrink="0"
-        alignSelf="stretch"
         size="large"
         isDisabled={false}
         variation="primary"
-        children="View Profile"
+        children="Update"
         {...getOverrideProps(overrides, "Button")}
+      ></Button>
+      <Button
+        width="272px"
+        shrink="0"
+        size="large"
+        isDisabled={false}
+        variation="primary"
+        children="Delete"
+        {...getOverrideProps(overrides, "DeleteButton")}
       ></Button>
     </Flex>
   );
