@@ -7,7 +7,7 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Flex, Text, TextField, View } from "@aws-amplify/ui-react";
+import { Flex, Text, View } from "@aws-amplify/ui-react";
 export default function MarketingFooter(props) {
   const { overrides, ...rest } = props;
   return (
@@ -347,16 +347,6 @@ export default function MarketingFooter(props) {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna"
           )}
         ></Text>
-        <TextField
-          shrink="0"
-          label="Label"
-          placeholder="Placeholder"
-          size="default"
-          isDisabled={false}
-          labelHidden={false}
-          variation="default"
-          {...getOverrideProps(overrides, "TextField")}
-        ></TextField>
         <Text
           fontFamily="Inter"
           fontSize="16px"

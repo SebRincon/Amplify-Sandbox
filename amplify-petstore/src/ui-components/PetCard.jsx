@@ -6,16 +6,24 @@
 
 /* eslint-disable */
 import * as React from "react";
+import { Pet } from "../models";
 import {
   getOverrideProps,
+  useDataStoreDeleteAction,
   useNavigateAction,
 } from "@aws-amplify/ui-react/internal";
+import { schema } from "../models/schema";
 import { Button, Flex, Image, Text } from "@aws-amplify/ui-react";
 export default function PetCard(props) {
   const { pet, overrides, ...rest } = props;
   const melindaMarcusOnClick = useNavigateAction({
     type: "url",
     url: pet?.image,
+  });
+  const deleteButtonOnClick = useDataStoreDeleteAction({
+    id: pet?.id,
+    model: Pet,
+    schema: schema,
   });
   return (
     <Flex
@@ -168,6 +176,9 @@ export default function PetCard(props) {
         isDisabled={false}
         variation="primary"
         children="Delete"
+        onClick={() => {
+          deleteButtonOnClick();
+        }}
         {...getOverrideProps(overrides, "DeleteButton")}
       ></Button>
     </Flex>
